@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 @Table(name="especialidad")
@@ -20,12 +22,14 @@ public class Especialidad {
 	@Column(name = "nombre" , length = 50)
 	private String nombre;
 	
-	@Column(name = "Descripcion" , length = 50)
-	private String Descripcion;
+	@Column(name = "descripcion" , length = 50)
+	private String descripcion;
 	
+	@JsonFormat(pattern="MM-dd-yyy")
 	@Column(name = "create_on" , columnDefinition = "DATE")
 	private LocalDate create_on;
 	
+	@JsonFormat(pattern="MM-dd-yyy")
 	@Column(name = "update_on" , columnDefinition = "DATE")
 	private LocalDate update_on;
 	
@@ -34,6 +38,16 @@ public class Especialidad {
 	
 	@Column(name = "actualizadopor" , length = 50)
 	private String actualizadopor;
+	
+	
+
+	public Long getIdEspecialidad() {
+		return idEspecialidad;
+	}
+
+	public void setIdEspecialidad(Long idEspecialidad) {
+		this.idEspecialidad = idEspecialidad;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -43,12 +57,13 @@ public class Especialidad {
 		this.nombre = nombre;
 	}
 
+
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
 	public LocalDate getCreate_on() {

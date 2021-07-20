@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "hospital")
 public class Hospital {
@@ -26,9 +28,11 @@ public class Hospital {
 	@Column(name = "telefono", length = 50)
 	private String telefono;
 
+	@JsonFormat(pattern="MM-dd-yyy")
 	@Column(name = "create_on", columnDefinition = "DATE")
 	private LocalDate create_on;
 
+	@JsonFormat(pattern="MM-dd-yyy")
 	@Column(name = "update_on", columnDefinition = "DATE")
 	private LocalDate update_on;
 
@@ -38,6 +42,15 @@ public class Hospital {
 	@Column(name = "actualizadopor", length = 50)
 	private String actualizadopor;
 
+	
+
+	public Long getIdHospital() {
+		return idHospital;
+	}
+
+	public void setIdHospital(Long idHospital) {
+		this.idHospital = idHospital;
+	}
 
 	public String getNombre() {
 		return nombre;

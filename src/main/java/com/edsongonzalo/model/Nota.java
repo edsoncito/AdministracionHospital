@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "nota")
 public class Nota {
@@ -22,9 +24,11 @@ public class Nota {
 	@Column(name = "descripcion", length = 50)
 	private String descripcion;
 
+	@JsonFormat(pattern="MM-dd-yyy")
 	@Column(name = "create_on", columnDefinition = "DATE")
 	private LocalDate create_on;
 
+	@JsonFormat(pattern="MM-dd-yyy")
 	@Column(name = "update_on", columnDefinition = "DATE")
 	private LocalDate update_on;
 
@@ -52,6 +56,20 @@ public class Nota {
 
 	public Nota() {		
 	}	
+	
+	
+
+	public Long getIdNota() {
+		return idNota;
+	}
+
+
+
+	public void setIdNota(Long idNota) {
+		this.idNota = idNota;
+	}
+
+
 
 	public String getDescripcion() {
 		return descripcion;
