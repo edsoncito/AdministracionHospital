@@ -1,5 +1,6 @@
 package com.edsongonzalo.service;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,11 @@ public class DoctorServiceImpl implements DoctorService{
 	@Transactional
 	public Doctor save(Doctor doctor) {
 		return doctorRepository.save(doctor);
+	}
+
+	@Override
+	public Doctor saveAll(List<Doctor> doctor) {
+		return null;
 	}
 
 	@Override
